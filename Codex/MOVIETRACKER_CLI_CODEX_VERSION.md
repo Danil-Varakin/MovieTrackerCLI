@@ -11,68 +11,50 @@
 - `popular` и `trending` адаптированы под доступные коллекции/топы Kinopoisk API Unofficial.
 - Утилита устанавливается как обычная глобальная команда `movie-tracker`, чтобы ей можно было пользоваться из терминала после установки.
 
-## Пользовательская установка
+## Установка для разработчиков
 
-Из исходников:
-
-```bash
-python -m pip install .
-movie-tracker init
-movie-tracker auth token YOUR_KINOPOISK_API_KEY
-movie-tracker search "Интерстеллар"
-```
-
-Рекомендуемый вариант для пользователей без ручного управления окружением:
-
-```bash
-python -m pip install pipx
-pipx install .
-movie-tracker --help
-```
-
-Сборка переносимого исполняемого файла:
-
-```bash
-python -m pip install -e ".[dev]"
-pyinstaller packaging/movie-tracker.spec
-```
-
-После сборки бинарь появится в `dist/` и может использоваться как обычная CLI-команда, если добавить каталог в `PATH`.
-
-Для GitHub-релиза добавлен workflow `.github/workflows/release.yml`: при теге вида `v1.0.0` он собирает Python-пакет и PyInstaller-бинарь для Windows, Linux и macOS.
-
-## Инициализация для разработчиков
-
-### Windows PowerShell
-
-```powershell
-git clone <repo-url>
-cd movie-tracker-cli
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -U pip
-python -m pip install -e ".[dev]"
-movie-tracker --help
-```
+Требования: **Python 3.11+**, **git**
 
 ### macOS / Linux
 
 ```bash
-git clone <repo-url>
-cd movie-tracker-cli
+git clone https://github.com/Danil-Varakin/MovieTrackerCLI.git
+cd MovieTrackerCLI/Codex
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install -U pip
-python -m pip install -e ".[dev]"
+pip install -e ".[dev]"
+movie-tracker init
+movie-tracker auth token ВАШ_КЛЮЧ
+movie-tracker --help
+```
+
+### Windows (PowerShell)
+
+```powershell
+git clone https://github.com/Danil-Varakin/MovieTrackerCLI.git
+cd MovieTrackerCLI\Codex
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -e ".[dev]"
+movie-tracker init
+movie-tracker auth token ВАШ_КЛЮЧ
 movie-tracker --help
 ```
 
 ### Hatch
 
 ```bash
-python -m pip install hatch
+pip install hatch
 hatch env create
 hatch run movie-tracker --help
+```
+
+Сборка переносимого бинарника:
+
+```bash
+pip install -e ".[dev]"
+pyinstaller packaging/movie-tracker.spec
+# результат появится в dist/
 ```
 
 ## Конфигурация

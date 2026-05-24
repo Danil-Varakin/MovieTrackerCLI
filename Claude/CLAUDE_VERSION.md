@@ -17,102 +17,36 @@
 
 ## Установка
 
-### Для пользователей — готовый бинарник (macOS / Linux)
-
-Скачайте и установите одной командой, Python не нужен:
+Требования: **Python 3.11+**, **git**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/YOUR_ORG/movie-tracker-cli/main/install.sh | bash
+git clone https://github.com/Danil-Varakin/MovieTrackerCLI.git
+cd MovieTrackerCLI/Claude
 ```
 
-Или вручную:
-
-**macOS (Apple Silicon)**
+**macOS / Linux**
 ```bash
-curl -fSL https://github.com/YOUR_ORG/movie-tracker-cli/releases/latest/download/movie-tracker-macos-arm64 \
-     -o /usr/local/bin/movie-tracker
-chmod +x /usr/local/bin/movie-tracker
-```
-
-**macOS (Intel)**
-```bash
-curl -fSL https://github.com/YOUR_ORG/movie-tracker-cli/releases/latest/download/movie-tracker-macos-x86_64 \
-     -o /usr/local/bin/movie-tracker
-chmod +x /usr/local/bin/movie-tracker
-```
-
-**Linux (x86_64)**
-```bash
-curl -fSL https://github.com/YOUR_ORG/movie-tracker-cli/releases/latest/download/movie-tracker-linux-x86_64 \
-     -o /usr/local/bin/movie-tracker
-chmod +x /usr/local/bin/movie-tracker
-```
-
-**Windows**  
-Скачайте `movie-tracker.exe` со [страницы релизов](https://github.com/YOUR_ORG/movie-tracker-cli/releases/latest) и добавьте в `PATH`.
-
-После установки на всех платформах:
-
-```bash
-movie-tracker-claude auth token YOUR_KINOPOISK_KEY
-movie-tracker-claude check
-movie-tracker-claude search 'Интерстеллар'
-```
-
-> **Получить бесплатный ключ:** [kinopoiskapiunofficial.tech](https://kinopoiskapiunofficial.tech)  
-> Регистрация → Dashboard → API Keys · Лимит: 500 запросов в сутки
-
----
-
-### Для разработчиков — установка из исходников
-
-Требования: Python 3.11+, git
-
-**macOS**
-```bash
-# Установить Python если нет
-brew install python@3.12
-
-# Клонировать и установить
-git clone https://github.com/YOUR_ORG/movie-tracker-cli.git
-cd movie-tracker-cli
-python3.12 -m venv .venv
-source .venv/bin/activate
-pip install -e ".[dev]"
-
-# Задать API ключ
-movie-tracker-claude auth token YOUR_KINOPOISK_KEY
-movie-tracker-claude check
-```
-
-**Linux**
-```bash
-git clone https://github.com/YOUR_ORG/movie-tracker-cli.git
-cd movie-tracker-cli
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -e ".[dev]"
-
-movie-tracker-claude auth token YOUR_KINOPOISK_KEY
-movie-tracker-claude check
+pip install -e .
 ```
 
-**Windows**
-```bat
-git clone https://github.com/YOUR_ORG/movie-tracker-cli.git
-cd movie-tracker-cli
+**Windows (PowerShell)**
+```powershell
 python -m venv .venv
-.venv\Scripts\activate
-pip install -e ".[dev]"
-
-movie-tracker-claude auth token YOUR_KINOPOISK_KEY
-movie-tracker-claude check
+.venv\Scripts\Activate.ps1
+pip install -e .
 ```
 
-**Альтернатива через pipx** (устанавливает глобально без venv):
+### Первый запуск
+
+Получить бесплатный ключ: [kinopoiskapiunofficial.tech](https://kinopoiskapiunofficial.tech) → Регистрация → Dashboard → API Keys
+
 ```bash
-pipx install .
-movie-tracker-claude auth token YOUR_KINOPOISK_KEY
+movie-tracker-claude init
+movie-tracker-claude auth token ВАШ_КЛЮЧ
+movie-tracker-claude check
+movie-tracker-claude search "Интерстеллар"
 ```
 
 ---
