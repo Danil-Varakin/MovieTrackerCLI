@@ -1,0 +1,29 @@
+[api]
+key = ""
+base_url = "https://kinopoiskapiunofficial.tech/api"
+timeout = 30
+max_retries = 3
+retry_backoff = 1.0
+
+[output]
+format = "table"
+language = "ru-RU"
+region = "RU"
+color = true
+page_size = 10
+
+[cache]
+enabled = true
+dir = "~/.movie-tracker/cache"
+max_size_mb = 100
+
+[storage]
+dir = "~/.movie-tracker"
+watchlist_file = "watchlist.json"
+auth_file = "auth.json"
+
+[logging]
+level = "WARNING"
+file = "~/.movie-tracker/movie-tracker.log"
+rotation = "10 MB"
+retention = "30 days"
