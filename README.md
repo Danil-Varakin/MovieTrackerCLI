@@ -36,8 +36,10 @@
 
 ```text
 MovieTrackerCLI/
-├── Claude/     # Claude Edition — movie-tracker-claude
-└── Codex/      # Codex Edition — movie-tracker
+├── Claude/                  # Claude Edition — movie-tracker-claude
+├── Codex/                   # Codex Edition — movie-tracker
+├── MovieTracker_CLI_TZ.md   # Техническое задание
+└── Отчет.md                 # Сравнительный отчёт
 ```
 
 ---
@@ -102,7 +104,24 @@ movie-tracker search "Интерстеллар"
 
 ---
 
-## Документация для разработчиков
+## Результаты сравнения
 
-- [Claude Edition](./Claude/CLAUDE_VERSION.md)
-- [Codex Edition](./Codex/MOVIETRACKER_CLI_CODEX_VERSION.md)
+| Критерий | Claude Edition | Codex Edition |
+|---|---|---|
+| Используемый ИИ | Claude Sonnet 4.6 | GPT 5.5 |
+| HTTP-клиент | httpx async (anyio) | httpx sync |
+| Количество тестов | 85 | 12 |
+| Система сборки | setuptools | hatchling |
+| Бинарная сборка | Нет | PyInstaller |
+| CI/CD | Нет | GitHub Actions |
+
+Подробный разбор — в [Отчет.md](./Отчет.md).
+
+---
+
+## Документация
+
+- [Техническое задание](./MovieTracker_CLI_TZ.md)
+- [Сравнительный отчёт](./Отчет.md)
+- [Claude Edition — для разработчиков](./Claude/CLAUDE_VERSION.md)
+- [Codex Edition — для разработчиков](./Codex/MOVIETRACKER_CLI_CODEX_VERSION.md)
